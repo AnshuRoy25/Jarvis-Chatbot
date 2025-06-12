@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <title>JARVIS - Create Account</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    </head>
+
+    <body>
+        <div class="auth-container">
+            <div class="auth-card">
+                <div class="auth-header">
+                    <h1>JARVIS</h1>
+                    <h2>Create Account</h2>
+                </div>
+
+                <div class="auth-form">
+                    <div class="input-group">
+                        <input type="text" id="username" class="auth-input" placeholder="Username" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <input type="password" id="password" class="auth-input" placeholder="Password" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <input type="password" id="confirm" class="auth-input" placeholder="Confirm Password" required>
+                    </div>
+
+                    <button class="auth-button primary" onclick="create()">Create Account</button>
+                    <button class="auth-button secondary" onclick="window.location.href='/login-page'">Return to Login</button>
+
+                    <p id="create-message" class="auth-message"></p>
+                </div>
+            </div>
+        </div>
+        
+        <script src="{{ url_for('static', filename='script.js') }}"></script>
+    </body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <title>JARVIS - AI Assistant</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    </head>
+    <body>
+        <div class="main-container">
+            <header class="header">
+                <h1>JARVIS</h1>
+                <p>Your AI Assistant</p>
+                <div class="model-selector-container mobile-top">
+                    <select id="model-selector" class="model-selector">
+                        <option value="mistral:7b">Mistral</option>   
+                        <option value="gemma3:4b">Gemma</option>
+                        <option value="deepseek-r1:7b">DeepSeek</option>
+                    </select>
+                </div>
+            </header>
+
+            <div class="chat-area">
+                <div id="messages" class="messages-container"></div>
+            </div>
+
+            <div class="input-section">
+                <div class="model-selector-container desktop-bottom">
+                    <select id="model-selector-2" class="model-selector">
+                        <option value="mistral:7b">Mistral</option>   
+                        <option value="gemma3:4b">Gemma</option>
+                        <option value="deepseek-r1:7b">DeepSeek</option>
+                    </select>
+                </div>
+                
+                <div class="input-wrapper">
+                    <input id="user-input" class="user-input" placeholder="Type your message here..." autocomplete="off">
+                    <button id="button" class="send-button" onclick="start()">Send</button>
+                </div>
+            </div>
+        </div>
+
+        <script src="{{ url_for('static', filename='script.js') }}"></script>
+    </body>
+</html>
