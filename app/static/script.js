@@ -64,10 +64,12 @@ async function login() {
 
         const data2 = await response.json()
 
-        if (data2.message === "Invalid username or password") {
+        if (data2.message === "Invalid password") {
         reply.innerHTML = `${data2.message}`;
      }
-
+        else if (data2.message === "Invalid username") {
+        reply.innerHTML = `${data2.message}`; 
+     }
         else if (data2.message === "Login Successful") {
         reply.innerHTML = `${data2.message}`; 
 

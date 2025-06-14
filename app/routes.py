@@ -2,7 +2,7 @@ from flask import request, jsonify, render_template, session
 from app import app
 from bson import ObjectId
 import ollama
-
+import bcrypt
 
 @app.route('/')
 def index():
@@ -25,9 +25,14 @@ def home_page():
 def create():
     data = request.json
     username = data['username']
-    password = data['password']
+    password = str(data['password'])
 
-    app.user_collection.insert_one({'username': username, 'password': password})
+    password_bytes = password.encode('utf-8')
+
+    salt = bcrypt.gensalt()
+    hashed_password = bcrypt.hashpw(password_bytes, salt)
+
+    app.user_collection.insert_one({'username': username, 'password': hashed_password.decode()})
     return jsonify({'message': 'done'})
 
 
@@ -35,15 +40,25 @@ def create():
 def login():
     data = request.json
     username = data['username']
-    password = data['password']
+    login_password = str(data['password'])  # plaintext password
 
-    user_data = app.user_collection.find_one({'username': username, 'password': password})
+    user_data = app.user_collection.find_one({'username': username})
 
     if user_data:
-        session["user_id"] = str(user_data["_id"])
-        return jsonify({'message': 'Login Successful'})
+        stored_hash = user_data['password']  # hashed password stored in MongoDB
+
+        # Convert both to bytes
+        login_password_bytes = login_password.encode('utf-8')
+        stored_hash_bytes = stored_hash.encode('utf-8')
+
+        if bcrypt.checkpw(login_password_bytes, stored_hash_bytes):
+            session["user_id"] = str(user_data["_id"])
+            return jsonify({'message': 'Login Successful'})
+        else:
+            return jsonify({'message': 'Invalid password'})
     else:
-        return jsonify({'message': 'Invalid username or password'})
+        return jsonify({'message': 'Invalid username'})
+
 
 
 @app.route('/chat', methods=['POST'])

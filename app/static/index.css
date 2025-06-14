@@ -1,3 +1,4 @@
+/* Base styles and main chat interface */
 * {
     margin: 0;
     padding: 0;
@@ -224,121 +225,6 @@ body {
     transform: translateY(0);
 }
 
-/* Authentication Pages */
-.auth-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    padding: 20px;
-    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
-}
-
-.auth-card {
-    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
-    border: 1px solid #444;
-    border-radius: 16px;
-    padding: 30px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
-    width: 100%;
-    max-width: 380px;
-    backdrop-filter: blur(10px);
-}
-
-.auth-header {
-    text-align: center;
-    margin-bottom: 25px;
-}
-
-.auth-header h1 {
-    font-size: 2.2rem;
-    color: #ff0000;
-    text-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
-    margin-bottom: 8px;
-    letter-spacing: 2px;
-}
-
-.auth-header h2 {
-    color: #ccc;
-    font-size: 1.3rem;
-    font-weight: 300;
-}
-
-.auth-form {
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-}
-
-.input-group {
-    position: relative;
-}
-
-.auth-input {
-    width: 100%;
-    padding: 14px 18px;
-    background: #2a2a2a;
-    border: 1px solid #444;
-    border-radius: 8px;
-    color: #fff;
-    font-size: 16px; /* Prevent zooming on mobile */
-    transition: all 0.3s ease;
-}
-
-.auth-input:focus {
-    outline: none;
-    border-color: #ff0000;
-    box-shadow: 0 0 12px rgba(255, 0, 0, 0.3);
-}
-
-.auth-input::placeholder {
-    color: #888;
-}
-
-.auth-button {
-    padding: 14px 22px;
-    border: none;
-    border-radius: 8px;
-    font-size: 0.95rem;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.auth-button.primary {
-    background: linear-gradient(135deg, #ff0000 0%, #cc0000 100%);
-    color: white;
-    box-shadow: 0 0 12px rgba(255, 0, 0, 0.3);
-}
-
-.auth-button.primary:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 0 18px rgba(255, 0, 0, 0.5);
-}
-
-.auth-button.secondary {
-    background: transparent;
-    color: #ccc;
-    border: 1px solid #444;
-}
-
-.auth-button.secondary:hover {
-    border-color: #ff0000;
-    color: #ff0000;
-    box-shadow: 0 0 8px rgba(255, 0, 0, 0.2);
-}
-
-.auth-message {
-    text-align: center;
-    font-size: 0.85rem;
-    margin-top: 8px;
-    min-height: 18px;
-    color: #ff0000;
-    text-shadow: 0 0 8px rgba(255, 0, 0, 0.3);
-}
-
 /* Animations */
 @keyframes fadeIn {
     from {
@@ -446,19 +332,6 @@ body {
         font-size: 0.85rem;
         min-height: 42px;
     }
-    
-    .auth-card {
-        padding: 25px 20px;
-        margin: 0 10px;
-    }
-    
-    .auth-header h1 {
-        font-size: 1.9rem;
-    }
-    
-    .auth-header h2 {
-        font-size: 1.1rem;
-    }
 }
 
 @media screen and (max-width: 480px) {
@@ -493,14 +366,6 @@ body {
         padding: 8px 12px;
         font-size: 0.8rem;
         min-height: 38px;
-    }
-    
-    .auth-card {
-        padding: 20px 15px;
-    }
-    
-    .auth-header h1 {
-        font-size: 1.7rem;
     }
 }
 
