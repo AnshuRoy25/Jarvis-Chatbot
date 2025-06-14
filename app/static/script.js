@@ -1,3 +1,4 @@
+
 // Your original functions - unchanged
 async function create() {
 
@@ -67,7 +68,7 @@ async function login() {
         reply.innerHTML = `${data2.message}`;
      }
 
-        else if (data2.message === "Login Sucessful") {
+        else if (data2.message === "Login Successful") {
         reply.innerHTML = `${data2.message}`; 
 
         setTimeout(() => {
@@ -115,6 +116,14 @@ async function start() {
     // Scroll to bottom
     scrollToBottom();
 }
+
+
+
+
+
+
+
+
 
 // New functions for enhanced UI
 function createMessage(content, type) {
