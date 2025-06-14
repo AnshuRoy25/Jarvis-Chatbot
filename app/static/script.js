@@ -120,6 +120,20 @@ async function start() {
 }
 
 
+function clearmessages() {
+    const messagebox = document.getElementById("messages");
+
+    messagebox.innerHTML = " ";
+}
+
+
+
+
+
+
+
+
+
 
 
 
